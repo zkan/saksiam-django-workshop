@@ -1,2 +1,1 @@
-# saksiam-django-workshop
-Django Workshop for SAK
+# Django Workshop for SAKSIAM
