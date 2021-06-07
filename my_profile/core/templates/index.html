@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+
+<head>
+    <title>{{ name }}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <h1>{{ name }}</h1>
+    <p>{{ short_profile }}</p>
+    <div><span>GitHub:</span> {{ github_url }}</div>
+    <div><span>Facebook:</span> {{ facebook_url }}</div>
+    <div><span>Twitter:</span> {{ twitter_url }}</div>
+
+    <div>
+        <p>Subscribe Me:</p>
+        <form action="." method="POST">
+            {% csrf_token %}
+            {{ form.email }}
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
