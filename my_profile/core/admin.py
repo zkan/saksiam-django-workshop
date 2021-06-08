@@ -7,9 +7,14 @@ from core.models import Profile, Subscriber
 class ProfileAdmin(admin.ModelAdmin):
     list_display = (
         "name",
+        "short_bio",
+        "github_url",
+        "facebook_url",
+        "twitter_url",
     )
     search_fields = (
         "name",
+        "short_bio",
     )
 
 
