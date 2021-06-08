@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import View
 
 from core.forms import SubscriberForm
-from core.models import Profile
+from core.models import Profile, Subscriber
 
 
 def index(request):
@@ -58,7 +58,8 @@ class IndexView(View):
             print(form.cleaned_data)
             print(form.cleaned_data.get("email"))
 
-            # Ready to save into database
+            email = form.cleaned_data.get("email")
+            Subscriber.objects.create(email=email)
 
         profile = Profile.objects.get(id=1)
         name = profile.name
