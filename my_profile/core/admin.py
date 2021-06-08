@@ -1,9 +1,8 @@
 from django.contrib import admin
 
-from core.models import Profile
+from core.models import Profile, Subscriber
 
 
-# Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = (
@@ -11,4 +10,14 @@ class ProfileAdmin(admin.ModelAdmin):
     )
     search_fields = (
         "name",
+    )
+
+
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = (
+        "email",
+    )
+    search_fields = (
+        "email",
     )
