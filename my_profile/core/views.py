@@ -31,10 +31,10 @@ class IndexView(View):
         form = SubscriberForm()
 
         name = profile.name
-        short_profile = "Data Craftsman. Passionate in software engineering, data engineering, and data science."
-        github_url = "https://github.com/zkan/"
-        facebook_url = "https://www.facebook.com/zkan.cs/"
-        twitter_url = "https://twitter.com/zkancs"
+        short_bio = profile.short_bio
+        github_url = profile.github_url
+        facebook_url = profile.facebook_url
+        twitter_url = profile.twitter_url
 
         return render(
             request,
@@ -42,7 +42,7 @@ class IndexView(View):
             {
                 "name": name,
                 "form": form,
-                "short_profile": short_profile,
+                "short_bio": short_bio,
                 "github_url": github_url,
                 "facebook_url": facebook_url,
                 "twitter_url": twitter_url,
@@ -62,10 +62,10 @@ class IndexView(View):
 
         profile = Profile.objects.get(id=1)
         name = profile.name
-        short_profile = "Data Craftsman. Passionate in software engineering, data engineering, and data science."
-        github_url = "https://github.com/zkan/"
-        facebook_url = "https://www.facebook.com/zkan.cs/"
-        twitter_url = "https://twitter.com/zkancs"
+        short_bio = profile.short_bio
+        github_url = profile.github_url
+        facebook_url = profile.facebook_url
+        twitter_url = profile.twitter_url
 
         return render(
             request,
@@ -73,7 +73,7 @@ class IndexView(View):
             {
                 "name": name,
                 "form": form,
-                "short_profile": short_profile,
+                "short_bio": short_bio,
                 "github_url": github_url,
                 "facebook_url": facebook_url,
                 "twitter_url": twitter_url,
