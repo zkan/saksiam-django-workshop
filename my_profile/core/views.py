@@ -46,7 +46,7 @@ class IndexView(View):
                 "github_url": github_url,
                 "facebook_url": facebook_url,
                 "twitter_url": twitter_url,
-            }
+            },
         )
 
     def post(self, request):
@@ -78,5 +78,5 @@ class IndexView(View):
                 "github_url": github_url,
                 "facebook_url": facebook_url,
                 "twitter_url": twitter_url,
-            }
+            },
         )
