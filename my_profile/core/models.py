@@ -7,3 +7,7 @@ class Profile(models.Model):
     github_url = models.CharField(max_length=300)
     facebook_url = models.CharField(max_length=300)
     twitter_url = models.CharField(max_length=300)
+
+
+class Subscriber(models.Model):
+    email = models.EmailField()
