@@ -20,9 +20,5 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
-    list_display = (
-        "email",
-    )
-    search_fields = (
-        "email",
-    )
+    list_display = ("email",)
+    search_fields = ("email",)

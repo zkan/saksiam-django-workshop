@@ -4,11 +4,11 @@ from core.models import Profile
 
 
 class Command(BaseCommand):
-    help = 'This is a command to show my profile!'
+    help = "This is a command to show my profile!"
 
     def add_arguments(self, parser):
-        parser.add_argument('id', nargs=1, type=int)
-        parser.add_argument('name', nargs=1, type=str)
+        parser.add_argument("id", nargs=1, type=int)
+        parser.add_argument("name", nargs=1, type=str)
 
     def handle(self, *args, **options):
         print(args)

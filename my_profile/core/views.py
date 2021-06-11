@@ -6,7 +6,7 @@ from core.forms import SubscriberForm
 from core.models import Profile, Subscriber
 
 
-def index(request):
+def index_func(request):
     html = """
       <html>
         <head>

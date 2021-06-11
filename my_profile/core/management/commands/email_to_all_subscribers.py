@@ -12,7 +12,9 @@ class Command(BaseCommand):
             from_email = "kan@odds.team"
             subject = "Don't forget to submit your homework :)"
             text_content = "Please submit your homework before Friday!"
-            html_content = "<p>Please submit your homework before <strong>Friday</strong>!</p>"
+            html_content = (
+                "<p>Please submit your homework before <strong>Friday</strong>!</p>"
+            )
 
             subscribers = Subscriber.objects.all()
             recipients = [each.email for each in subscribers]

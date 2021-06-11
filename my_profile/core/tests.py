@@ -10,7 +10,7 @@ class TestProfile(TestCase):
             short_bio="My short bio",
             github_url="https://github.com/zkan",
             facebook_url="https://www.facebook.com/zkan.cs",
-            twitter_url="https://twitter.com/zkancs"
+            twitter_url="https://twitter.com/zkancs",
         )
 
         assert profile.name == "Kan Ouivirach"
@@ -37,10 +37,8 @@ class TestIndexView(TestCase):
         Profile.objects.create(name="Kan Ouivirach")
 
         # When
-        data = {
-            "email": "kan@odds.team"
-        }
-        response = self.client.post("/", data=data)
+        data = {"email": "kan@odds.team"}
+        self.client.post("/", data=data)
 
         # Then
         subscriber = Subscriber.objects.last()
