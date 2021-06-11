@@ -1,9 +1,14 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
 
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from core.forms import SubscriberForm
 from core.models import Profile, Subscriber
+from core.serializers import SubscriberSerializer
 
 
 def index_func(request):
@@ -80,3 +85,31 @@ class IndexView(View):
                 "twitter_url": twitter_url,
             },
         )
+
+
+class SubscriberAPIView(APIView):
+    def get(self, request):
+        # data = {
+        #     "text": "Hello World!",
+        # }
+        # # {"text": "Hello World!"}
+        # return JsonResponse(data)
+        
+        # subscriber = Subscriber.objects.first()
+        # serializer = SubscriberSerializer(subscriber)
+
+        subscribers = Subscriber.objects.all()
+        serializer = SubscriberSerializer(subscribers, many=True)
+
+        return Response(serializer.data)
+
+    def post(self, request):
+        print(request.data)
+
+        serializer = SubscriberSerializer(data=request.data)
+        if serializer.is_valid():
+            # print(serializer.data)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
