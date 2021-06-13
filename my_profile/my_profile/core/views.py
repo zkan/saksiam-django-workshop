@@ -6,9 +6,9 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from core.forms import SubscriberForm
-from core.models import Profile, Subscriber
-from core.serializers import SubscriberSerializer
+from .forms import SubscriberForm
+from .models import Profile, Subscriber
+from .serializers import SubscriberSerializer
 
 
 def index_func(request):
@@ -94,7 +94,7 @@ class SubscriberAPIView(APIView):
         # }
         # # {"text": "Hello World!"}
         # return JsonResponse(data)
-        
+
         # subscriber = Subscriber.objects.first()
         # serializer = SubscriberSerializer(subscriber)
 

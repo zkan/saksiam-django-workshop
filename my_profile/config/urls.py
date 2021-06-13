@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from core.views import (
-    index_func, 
-    IndexView, 
+from my_profile.core.views import (
+    index_func,
+    IndexView,
     SubscriberAPIView,
 )
 

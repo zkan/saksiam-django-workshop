@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from core.models import Profile, Subscriber
+from .models import Profile, Subscriber
 
 
 class TestProfile(TestCase):
