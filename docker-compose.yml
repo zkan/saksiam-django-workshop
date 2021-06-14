@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: zkan/sak-nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9999:80
+    networks:
+      - saksiam
+
+  db:
+    image: postgres
+
+  django:
+    image: zkan/sak-django
+    build:
+      context: .
+      dockerfile: Dockerfile-django
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    networks:
+      - saksiam
+    command: /start
+
+networks:
+  saksiam:
+    external: true
