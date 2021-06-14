@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Subscriber
+from .models import Profile, Subscriber
 
 
 class SubscriberSerializer(serializers.Serializer):
@@ -8,3 +8,9 @@ class SubscriberSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Subscriber.objects.create(**validated_data)
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = "__all__"

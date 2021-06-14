@@ -16,12 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from rest_framework import routers
+
 from my_profile.core.views import (
     index_func,
     IndexView,
     SubscriberAPIView,
+    ProfileViewSet,
 )
 
+
+router = routers.DefaultRouter()
+router.register(r'profiles', ProfileViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,3 +35,5 @@ urlpatterns = [
     path("", IndexView.as_view()),
     path("subscribers/", SubscriberAPIView.as_view()),
 ]
+
+urlpatterns += router.urls

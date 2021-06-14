@@ -2,13 +2,13 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
 
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .forms import SubscriberForm
 from .models import Profile, Subscriber
-from .serializers import SubscriberSerializer
+from .serializers import ProfileSerializer, SubscriberSerializer
 
 
 def index_func(request):
@@ -113,3 +113,8 @@ class SubscriberAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
