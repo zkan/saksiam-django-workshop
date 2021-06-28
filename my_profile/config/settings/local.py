@@ -3,7 +3,7 @@ from .base import *  # noqa
 
 # DEBUG = False
 
-# ALLOWED_HOSTS = ["*", "api.odds.team", "52.192.11.105"]
+ALLOWED_HOSTS = ["*",]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
